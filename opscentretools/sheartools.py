@@ -41,7 +41,7 @@ def calculate_shear(wind_speed, wind_dir):
     x_lower = speed_lower * iris.analysis.maths.apply_ufunc(np.cos, dir_lower)
     y_lower = speed_lower * iris.analysis.maths.apply_ufunc(np.sin, dir_lower)
     x_upper = speed_upper * iris.analysis.maths.apply_ufunc(np.cos, dir_upper)
-    y_upper = speed_upper * iris.analysis.maths.apply_ufunc(np.cos, dir_upper)
+    y_upper = speed_upper * iris.analysis.maths.apply_ufunc(np.sin, dir_upper)
 
     x_diff = x_upper - x_lower
     y_diff = y_upper - y_lower
