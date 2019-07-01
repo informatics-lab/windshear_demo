@@ -1,3 +1,6 @@
-.ipynb_checkpoints/*
-opscentretools/.ipynb_checkpoints/*
-opscentretools/__pycache__/*
+*.nc
+**.pyc
+.ipynb_checkpoints/
+dask-worker-space/
+opscentretools/.ipynb_checkpoints/
+opscentretools/__pycache__/
