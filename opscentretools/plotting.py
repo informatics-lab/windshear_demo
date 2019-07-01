@@ -11,7 +11,7 @@ def interactive_plot(cube, cmap='viridis', coastlines=True, coastline_color='gre
     # Generate an interactive Bokeh image of a cube with various plotting options
     
     # Convert cube to GeoViews dataset
-    dataset = gv.Dataset(cube, [coord.name() for coord in cube.dim_coords])
+    dataset = gv.Dataset(cube, [coord.name() for coord in cube.dim_coords], label=cube.name())
     
     # Generate an image object which will dynamically render as the interactive view changes
     image = regrid(dataset.to(gv.Image, ['longitude', 'latitude'], dynamic=True))
@@ -29,6 +29,6 @@ def interactive_plot(cube, cmap='viridis', coastlines=True, coastline_color='gre
     
     # Include coastlines if needed
     if coastlines:
-        return image.opts(**options, **opts) * gv.feature.coastline.opts(line_color=coastline_color)
+        return gv.feature.ocean * gv.feature.land * image.opts(**options, **opts) * gv.feature.coastline.opts(line_color=coastline_color)
     else:
         return image.opts(**options, **opts)
