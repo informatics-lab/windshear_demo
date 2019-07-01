@@ -7,7 +7,7 @@ import panel as pn
 pn.extension()
 hv.extension('bokeh')
 
-def interactive_plot(cube, cmap='viridis', coastlines=True, coastline_color='white', projection=ccrs.PlateCarree, tools=['hover'], min_height=600, **opts):
+def interactive_plot(cube, cmap='viridis', coastlines=False , coastline_color='white', projection=ccrs.PlateCarree, tools=['hover'], min_height=600, **opts):
     # Generate an interactive Bokeh image of a cube with various plotting options
     
     # Convert cube to GeoViews dataset
@@ -35,6 +35,10 @@ def interactive_plot(cube, cmap='viridis', coastlines=True, coastline_color='whi
     
 def two_plot_linked_slider(plot1, plot2):
     # Generate a Panel dashboard of two plots with a shared slider
+    
+#     from holoviews.plotting.links import RangeToolLink
+    
+#     RangeToolLink(plot1, plot2)
     
     # Create a Panel object to host our plots
     app = pn.GridSpec(sizing_mode='stretch_both')
