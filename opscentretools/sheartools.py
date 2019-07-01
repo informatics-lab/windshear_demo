@@ -52,3 +52,19 @@ def calculate_shear(wind_speed, wind_dir):
     shear.units = "m s-1"
     
     return shear
+
+def calculate_ensemble_exceedence(wind_shear, threshold=15):
+    # Calculate the proportion of ensemble members which have shear values exceeding the threshold
+    
+    # make a copy of the cube
+    shear = wind_shear.copy()
+    
+    # collapse the cube along the 'realization' dimension according to proportional analysis
+    exceedance = shear.collapsed('realization', iris.analysis.PROPORTION,
+                                       function=lambda values: values > threshold)
+    
+    # rename cube and remove units
+    exceedance.long_name = "Wind Shear > {}".format(threshold)
+    exceedance.units = "1"
+    
+    return exceedance
