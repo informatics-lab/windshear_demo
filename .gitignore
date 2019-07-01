@@ -1,5 +1,6 @@
 *.nc
 **.pyc
+**.nrrd
 .ipynb_checkpoints/
 dask-worker-space/
 opscentretools/.ipynb_checkpoints/
