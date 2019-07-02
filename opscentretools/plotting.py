@@ -32,29 +32,31 @@ def interactive_plot(cube, cmap='viridis', coastlines=False , coastline_color='w
         return gv.feature.ocean * gv.feature.land * image.opts(**options, **opts) * gv.feature.coastline.opts(line_color=coastline_color)
     else:
         return image.opts(**options, **opts)
-    
-def two_plot_linked_slider(plot1, plot2):
-    # Generate a Panel dashboard of two plots with a shared slider
-    
-#     from holoviews.plotting.links import RangeToolLink
-    
-#     RangeToolLink(plot1, plot2)
+
+def dashboard_column(plots, shared_slider=False):
+    # Generate a Panel dashboard from a list of interactive plots
     
     # Create a Panel object to host our plots
     app = pn.GridSpec(sizing_mode='stretch_both')
     
     # Arrange plots in a column
-    plots = pn.Column(plot1, plot2)
+    column = pn.Column(*plots)
     
-    # Pull out the sliders from each plot and link them
-    slider1 = plots[0][1][0]
-    slider2 = plots[1][1][0]
-    slider1.link(slider2, value='value')
-    slider1.name = slider1.name.capitalize()
-    
-    # Arrange the plots vertically with a shared slider in the right hand quarter
-    app[0, 0:4]=plots[0][0]
-    app[1, 0:4]=plots[1][0]
-    app[0, 4]=slider1
+    # Add plots and sliders to Panel app
+    if shared_slider:
+        # Link all the sliders to one slider
+        # TODO: Add check for whether sliders can be linked
+        slider1 = column[0][1][0]
+        for plot in column[1:]:
+            slider = plot[1][0]
+            slider1.link(slider, value='value')
+        # Append all the plots to the app (using 3/4 of the horizontal space)
+        for i, plot in enumerate(column):
+            app[i, 0:4] = plot[0]
+        # Add the linked slider (using the last 1/4 of the horizontal space)
+        app[0, 4] = slider1
+    else:
+        # Append whole column (with individual sliders) to the app
+        app[0, 0] = column
     
     return app
