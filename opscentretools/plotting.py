@@ -7,14 +7,14 @@ import panel as pn
 pn.extension()
 hv.extension('bokeh')
 
-def interactive_plot(cube, cmap='viridis', coastlines=False , coastline_color='white', projection=ccrs.PlateCarree, tools=['hover'], min_height=600, **opts):
+def interactive_plot(cube, cmap='viridis', kdims=['longitude', 'latitude'], coastlines=False , coastline_color='white', projection=ccrs.PlateCarree, tools=['hover'], min_height=600, **opts):
     # Generate an interactive Bokeh image of a cube with various plotting options
     
     # Convert cube to GeoViews dataset
     dataset = gv.Dataset(cube, [coord.name() for coord in cube.dim_coords], label=cube.name())
     
     # Generate an image object which will dynamically render as the interactive view changes
-    image = regrid(dataset.to(gv.Image, ['longitude', 'latitude'], dynamic=True))
+    image = regrid(dataset.to(gv.Image, kdims, dynamic=True))
     
     # Options for plotting
     options = {
