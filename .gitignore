@@ -1,5 +1,5 @@
 *.nc
-.pyc
+**.pyc
 **.nrrd
 .ipynb_checkpoints/
 dask-worker-space/
