@@ -1,0 +1,16 @@
+name: windshear_example
+channels:
+  - informaticslab
+  - pyviz
+  - conda-forge
+  - defaults
+dependencies:
+  - geoviews
+  - itkwidgets
+  - jade_utils
+  - jupyterlab
+  - mo_aws_earth
+  - numpy
+  - panel
+  - python=3
+  - qrcode
