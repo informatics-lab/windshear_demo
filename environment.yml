@@ -5,6 +5,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - dask-kubernetes
   - geoviews
   - itkwidgets
   - jade_utils
