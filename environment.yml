@@ -6,6 +6,7 @@ channels:
   - defaults
 dependencies:
   - dask-kubernetes
+  - jupyterlab=0.35.6
   - geoviews
   - itkwidgets
   - jade_utils
