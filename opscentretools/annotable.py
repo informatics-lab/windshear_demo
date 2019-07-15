@@ -8,7 +8,7 @@ from holoviews.streams import FreehandDraw
 import geoviews as gv
 
 
-def make(plot, port=0, websocket_origin='pangeo.informaticslab.co.uk', url_path='annotable'):
+def webapp(plot, port=0, websocket_origin='pangeo-dev.informaticslab.co.uk', url_path='annotable'):
     renderer = hv.renderer('bokeh')
     app = renderer.app(plot)
     server = Server({f'/{url_path}': app}, port=port, allow_websocket_origin=[websocket_origin])
@@ -25,6 +25,17 @@ def make(plot, port=0, websocket_origin='pangeo.informaticslab.co.uk', url_path=
     display(stop_button)
     
     return server
+
+
+def sidecar(plot, name='Sidecar', coastlines=False)
+    
+    if coastlines:
+        display_plot = plot * gf.coastline
+    else:
+        display_plot = plot
+    
+    with Sidecar(name):
+        display(display_plot)
 
 
 def warning(color="orange"):
