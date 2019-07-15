@@ -27,7 +27,7 @@ def webapp(plot, port=0, websocket_origin='pangeo-dev.informaticslab.co.uk', url
     return server
 
 
-def sidecar(plot, name='Sidecar', coastlines=False)
+def sidecar(plot, name='Sidecar', coastlines=False):
     
     if coastlines:
         display_plot = plot * gf.coastline

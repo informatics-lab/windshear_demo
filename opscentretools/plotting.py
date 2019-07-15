@@ -7,7 +7,7 @@ import panel as pn
 pn.extension()
 hv.extension('bokeh')
 
-def interactive_plot(cube, cmap='viridis', kdims=['longitude', 'latitude'], coastlines=False , coastline_color='white', projection=ccrs.PlateCarree, tools=['hover'], min_height=600, **opts):
+def interactive_plot(cube, cmap='viridis', kdims=['longitude', 'latitude'], coastlines=False , coastline_color='grey', projection=ccrs.PlateCarree, tools=['hover'], min_height=600, **opts):
     # Generate an interactive Bokeh image of a cube with various plotting options
     
     # Convert cube to GeoViews dataset
