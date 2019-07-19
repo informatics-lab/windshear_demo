@@ -8,6 +8,11 @@ import geoviews as gv
 import cartopy.crs as ccrs
 import cartopy.feature as cf
 import numpy as np
+import sys
+# Suppress warnings
+if not sys.warnoptions:
+    import warnings
+    warnings.simplefilter("ignore")
     
 
 def vertical_boundary_levels(cube, vertical='pressure'):

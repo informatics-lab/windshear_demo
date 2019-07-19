@@ -6,6 +6,11 @@ import ipywidgets as widgets
 import qrcode
 from holoviews.streams import FreehandDraw
 import geoviews as gv
+import sys
+# Suppress warnings
+if not sys.warnoptions:
+    import warnings
+    warnings.simplefilter("ignore")
 
 
 def webapp(plot, port=0, websocket_origin='pangeo-dev.informaticslab.co.uk', url_path='annotable'):

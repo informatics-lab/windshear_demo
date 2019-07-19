@@ -3,11 +3,17 @@ import geoviews as gv
 import cartopy.crs as ccrs
 import cartopy.feature as cf
 from holoviews.operation.datashader import regrid
+from holoviews.streams import FreehandDraw
 import panel as pn
 pn.extension()
-hv.extension('bokeh')
+hv.extension('bokeh', logo=False)
+import sys
+# Suppress warnings
+if not sys.warnoptions:
+    import warnings
+    warnings.simplefilter("ignore")
 
-def interactive_plot(cube, cmap='viridis', kdims=['longitude', 'latitude'], coastlines=False , coastline_color='grey', projection=ccrs.PlateCarree, tools=['hover'], min_height=600, **opts):
+def interactive_plot(cube, cmap='viridis', kdims=['longitude', 'latitude'], coastlines=False , coastline_color='pink', projection=ccrs.PlateCarree, tools=['hover'], min_height=600, **opts):
     # Generate an interactive Bokeh image of a cube with various plotting options
     
     # Convert cube to GeoViews dataset
@@ -60,3 +66,9 @@ def dashboard_column(plots, shared_slider=False):
         app[0, 0] = column
     
     return app
+
+def warning_tool(color="orange"):
+    warning = gv.Polygons([]).opts(line_color=color, line_width=3, fill_color=color, fill_alpha=0.2)
+    pen = FreehandDraw(source=warning)
+
+    return pen, warning
