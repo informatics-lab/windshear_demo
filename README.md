@@ -1,9 +1,9 @@
-[![Binder](https://binder.pangeo.io/badge_logo.svg)](https://binder.pangeo.io/v2/gh/informatics-lab/windshear_hero_demo/master?urlpath=lab/tree/wind_shear.ipynb)
+<!---[![Binder](https://binder.pangeo.io/badge_logo.svg)](https://binder.pangeo.io/v2/gh/informatics-lab/windshear_hero_demo/master?urlpath=lab/tree/wind_shear.ipynb)--->
 
 # Windshear Hero Demo
 Example of how to use the latest Informatics Lab tools to communicate a weather forecast.
 
-## Setup
+<!---## Setup
 First, clone this repository:
 
 ```
@@ -26,9 +26,9 @@ itk-jupyter-widgets \
 jupyter-matplotlib \
 jupyterlab-datawidgets \
 jupyterlab_bokeh 
-```
+```--->
 
-## Launch demo using Binder
+<!---## Launch demo using Binder
 This notebook can be run from the [Pangeo Binder](https://binder.pangeo.io/) service at:
 
 https://binder.pangeo.io/v2/gh/informatics-lab/windshear_hero_demo/binder?urlpath=lab/tree/wind_shear.ipynb
@@ -39,4 +39,4 @@ If you wish to run it locally, first clone this git repository (see above) then:
 
 Or if you are using Jupyter Lab:
 
-```jupyter lab```
+```jupyter lab```--->
