@@ -1,9 +1,0 @@
-JupyterLab v0.35.5
-Known labextensions:
-    @jupyter-widgets/jupyterlab-manager v0.38.1
-    @pyviz/jupyterlab_pyviz v0.7.2
-    dask-labextension v0.3.0
-    itk-jupyter-widgets v0.16.3
-    jupyter-matplotlib v0.3.0
-    jupyterlab-datawidgets v6.1.0
-    jupyterlab_bokeh v0.6.3

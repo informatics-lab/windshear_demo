@@ -8,7 +8,12 @@ import geoviews as gv
 import cartopy.crs as ccrs
 import cartopy.feature as cf
 import numpy as np
-
+import sys
+# Suppress warnings
+if not sys.warnoptions:
+    import warnings
+    warnings.simplefilter("ignore")
+    
 
 def vertical_boundary_levels(cube, vertical='pressure'):
     # Calculate the level values between each pair of levels
@@ -110,3 +115,8 @@ def calculate_ensemble_exceedence(wind_shear, threshold=15):
     exceedance.units = "1"
     
     return exceedance
+
+
+def estimate_cube_size(cube):
+    # Return the estimated size of a cube without realising its data
+    return iris_tools.estimate_cube_size(cube)
